@@ -10,12 +10,12 @@ public class Account {
     }
 
     public boolean checkNameToEmboss() {
+        if (name != null) {
+            String regex = "^(?=.{3,19}$)([\\Sa-zA-Zа-яА-ЯеЁ]+)\\s{1}[a-zA-Zа-яА-ЯеЁ]+$";
+            final Pattern pattern = Pattern.compile(regex, Pattern.DOTALL);
+            final Matcher matcher = pattern.matcher(name);
 
-        final Pattern pattern = Pattern.compile("^(?=.{3,19}$)([\\Sa-zA-Zа-яА-ЯеЁ]+)\\s{1}[a-zA-Zа-яА-ЯеЁ]+$", Pattern.DOTALL);
-        final Matcher matcher = pattern.matcher(name);
-
-        return matcher.find();
-
+            return matcher.find();
+        } else return false;
     }
-
 }

@@ -1,4 +1,3 @@
-import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 import org.junit.runner.RunWith;
@@ -20,6 +19,7 @@ public class AccountParameterizationTest {
     public static Object[][] getName() {
 
         return new Object[][]{
+                {null, false}, //null
                 {"", false}, // 0 символов
                 {"А", false}, // 1 символ
                 {"АП", false}, // 2 символа
@@ -33,8 +33,8 @@ public class AccountParameterizationTest {
                 {"Оченьдлинноеимячеловека Идлинннаяфамилия", false}, //40 символов
                 {"АртемПарич", false}, // без пробела
                 {"Иван Николаевич Иванов", false}, // 2 пробела
-                {" Прохор Жук", false}, // пробел в начале
-                {"Федор Ермаков ", false}, // пробел в конце
+                {" ПрохорЖук", false}, // пробел в начале
+                {"ФедорЕрмаков ", false}, // пробел в конце
 
         };
     }
