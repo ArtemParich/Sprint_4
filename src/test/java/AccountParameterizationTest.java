@@ -1,5 +1,6 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
+
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -15,7 +16,7 @@ public class AccountParameterizationTest {
         this.expected = expected;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters (name = " \"{0}\" - {1}")
     public static Object[][] getName() {
 
         return new Object[][]{
@@ -39,8 +40,7 @@ public class AccountParameterizationTest {
     }
 
     @Test
-    @DisplayName("Check print name / parameterized test")
-    public void canPrintNameBankCardParameterizedTest() {
+    public void canPrintNameTest() {
         Account account = new Account(name);
         boolean actual = account.checkNameToEmboss();
         assertEquals("Ошибка в обработке имени: " + name, expected, actual);

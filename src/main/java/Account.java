@@ -14,9 +14,7 @@ public class Account {
         final Pattern pattern = Pattern.compile("^(?=.{3,19}$)([\\Sa-zA-Zа-яА-ЯеЁ]+)\\s{1}[a-zA-Zа-яА-ЯеЁ]+$", Pattern.DOTALL);
         final Matcher matcher = pattern.matcher(name);
 
-        if (matcher.find())
-            return true;
-        else return false;
+        return matcher.find();
 
     }
 
